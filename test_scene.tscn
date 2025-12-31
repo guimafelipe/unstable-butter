@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://jqyen8bkouqb"]
+[gd_scene load_steps=8 format=3 uid="uid://jqyen8bkouqb"]
 
 [ext_resource type="Script" uid="uid://duj425diwqwe5" path="res://owner.gd" id="1_uhqqe"]
 [ext_resource type="Texture2D" uid="uid://bykx500x2k8u" path="res://icon.svg" id="2_ia1lp"]
+[ext_resource type="Script" uid="uid://ckyhopm7cuxin" path="res://butter.gd" id="3_sasra"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ia1lp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sasra"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sasra"]
 
@@ -15,12 +18,22 @@
 position = Vector2(81, 341)
 script = ExtResource("1_uhqqe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Owner"]
-shape = SubResource("CapsuleShape2D_ia1lp")
+[node name="Sprite2D" type="Sprite2D" parent="Owner"]
+visible = false
+texture = ExtResource("2_ia1lp")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Owner"]
-texture = ExtResource("2_ia1lp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Owner"]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_ia1lp")
+
+[node name="Butter" type="AnimatableBody2D" parent="Owner"]
+position = Vector2(60, 73)
+script = ExtResource("3_sasra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Owner/Butter"]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_sasra")
 metadata/_edit_lock_ = true
 
 [node name="World" type="Node2D" parent="."]

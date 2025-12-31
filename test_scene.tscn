@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://jqyen8bkouqb"]
+
+[ext_resource type="Script" uid="uid://duj425diwqwe5" path="res://owner.gd" id="1_uhqqe"]
+[ext_resource type="Texture2D" uid="uid://bykx500x2k8u" path="res://icon.svg" id="2_ia1lp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ia1lp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sasra"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_coq8p"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Owner" type="CharacterBody2D" parent="."]
+position = Vector2(81, 341)
+script = ExtResource("1_uhqqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Owner"]
+shape = SubResource("CapsuleShape2D_ia1lp")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Owner"]
+texture = ExtResource("2_ia1lp")
+metadata/_edit_lock_ = true
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="LowerLimit" type="StaticBody2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/LowerLimit"]
+position = Vector2(93, 583)
+shape = SubResource("WorldBoundaryShape2D_sasra")
+
+[node name="UpperLimit" type="StaticBody2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/UpperLimit"]
+position = Vector2(94, 74)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_coq8p")

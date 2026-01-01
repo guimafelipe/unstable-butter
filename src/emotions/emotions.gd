@@ -9,6 +9,6 @@ func _ready():
 
 func increase_emotion(emotion: Constants.EMOTIONS, amount: float):
 	emotions[emotion] += amount
+	print("tomou dano")
 	if emotions[emotion] >= EMOTION_CAP:
 		print("Game over")
-	

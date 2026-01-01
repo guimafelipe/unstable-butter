@@ -17,7 +17,7 @@ func on_timer_timeout():
 	$Timer.start(randf_range(2.0, 4.0))
 
 func spawn():
-	var type = randi()%3
+	var type := randi()%3 as Constants.EMOTIONS
 	var spawn_y = randf_range(-200, 200)
 	var damage = randf_range(69.0, 99.9)
 	var enemy : Enemy = enemy_base.instantiate()

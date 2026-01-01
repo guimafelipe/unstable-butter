@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://jqyen8bkouqb"]
+[gd_scene load_steps=10 format=3 uid="uid://jqyen8bkouqb"]
 
-[ext_resource type="Script" uid="uid://duj425diwqwe5" path="res://owner.gd" id="1_uhqqe"]
+[ext_resource type="Script" uid="uid://duj425diwqwe5" path="res://src/owner/owner.gd" id="1_uhqqe"]
 [ext_resource type="Texture2D" uid="uid://bykx500x2k8u" path="res://icon.svg" id="2_ia1lp"]
-[ext_resource type="Script" uid="uid://ckyhopm7cuxin" path="res://butter.gd" id="3_sasra"]
-[ext_resource type="Script" uid="uid://d4ln48novglom" path="res://enemy_spawner.gd" id="4_2nij2"]
+[ext_resource type="Script" uid="uid://ckyhopm7cuxin" path="res://src/butter/butter.gd" id="3_sasra"]
+[ext_resource type="Script" uid="uid://d4ln48novglom" path="res://src/enemy_spawner/enemy_spawner.gd" id="4_2nij2"]
+[ext_resource type="Script" uid="uid://bu78qdhkdikm7" path="res://src/emotions/emotions.gd" id="5_2nij2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ia1lp"]
 
@@ -57,3 +58,6 @@ position = Vector2(1270, 323)
 script = ExtResource("4_2nij2")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
+
+[node name="Emotions" type="Node" parent="."]
+script = ExtResource("5_2nij2")

@@ -3,15 +3,9 @@ extends Node2D
 
 @export var speed = 60.0
 
-enum DAMAGE {
-	FEAR,
-	ANGER,
-	LONELINESS
-}
+var damage_type: Constants.EMOTIONS
 
-var damage_type: DAMAGE
-
-func set_dagame_type(type: DAMAGE) -> void:
+func set_dagame_type(type: Constants.EMOTIONS) -> void:
 	damage_type = type
 
 # Called when the node enters the scene tree for the first time.

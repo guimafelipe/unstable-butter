@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://jqyen8bkouqb"]
+[gd_scene load_steps=16 format=3 uid="uid://jqyen8bkouqb"]
 
 [ext_resource type="Script" uid="uid://dl30mx5gttlj5" path="res://test_scene.gd" id="1_7cbxl"]
 [ext_resource type="Script" uid="uid://duj425diwqwe5" path="res://src/owner/owner.gd" id="1_uhqqe"]
 [ext_resource type="Texture2D" uid="uid://bykx500x2k8u" path="res://icon.svg" id="2_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://p0qadji3q1cm" path="res://assets/art/sky background.png" id="2_vr1i5"]
+[ext_resource type="Texture2D" uid="uid://blyuwj40bccki" path="res://assets/art/sidewalk.png" id="3_rpuu0"]
 [ext_resource type="Script" uid="uid://ckyhopm7cuxin" path="res://src/butter/butter.gd" id="3_sasra"]
 [ext_resource type="Script" uid="uid://d4ln48novglom" path="res://src/enemy_spawner/enemy_spawner.gd" id="4_2nij2"]
+[ext_resource type="Texture2D" uid="uid://b6gckj3qm2mo7" path="res://assets/art/grass (front).png" id="4_oo8pe"]
 [ext_resource type="Script" uid="uid://bu78qdhkdikm7" path="res://src/emotions/emotions.gd" id="5_2nij2"]
+[ext_resource type="Texture2D" uid="uid://bmiu0kjdleyl6" path="res://assets/art/home (sidewalk).png" id="5_4gito"]
+[ext_resource type="Script" uid="uid://bwmg2b75muaol" path="res://src/house/house.gd" id="6_rpuu0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ia1lp"]
 
@@ -17,6 +22,28 @@
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_7cbxl")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(576.3125, 364.5)
+scale = Vector2(4.5625005, 4.5625005)
+texture = ExtResource("2_vr1i5")
+
+[node name="Sidewalk" type="Sprite2D" parent="."]
+position = Vector2(579.00006, 603)
+scale = Vector2(4.5757813, 4.5757813)
+texture = ExtResource("3_rpuu0")
+
+[node name="GrassFront" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(580, 599)
+scale = Vector2(4.581249, 4.5812497)
+texture = ExtResource("4_oo8pe")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(683, 672)
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("5_4gito")
+script = ExtResource("6_rpuu0")
 
 [node name="Owner" type="CharacterBody2D" parent="."]
 position = Vector2(81, 341)
@@ -41,23 +68,25 @@ shape = SubResource("CapsuleShape2D_sasra")
 metadata/_edit_lock_ = true
 
 [node name="World" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="LowerLimit" type="StaticBody2D" parent="World"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/LowerLimit"]
-position = Vector2(93, 583)
+position = Vector2(93, 651)
 shape = SubResource("WorldBoundaryShape2D_sasra")
 
 [node name="UpperLimit" type="StaticBody2D" parent="World"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/UpperLimit"]
-position = Vector2(94, 74)
+position = Vector2(91, 184)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_coq8p")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 position = Vector2(1270, 323)
 script = ExtResource("4_2nij2")
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 

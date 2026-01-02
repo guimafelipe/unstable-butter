@@ -1,7 +1,6 @@
 class_name Enemy
 extends Node2D
 
-@export var speed = 60.0
 signal emotion_trigerred(emotion: Constants.EMOTIONS, amount: float)
 
 var damage_type: Constants.EMOTIONS
@@ -22,7 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x -= speed*delta
+	position.x -= Constants.WALKING_SPEED*delta
 
 func _on_effect_area_body_entered(body: Node2D) -> void:
 	if (not activated) and (body is Owner):

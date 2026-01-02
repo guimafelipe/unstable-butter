@@ -5,3 +5,5 @@ enum EMOTIONS {
 	ANGER,
 	LONELINESS
 }
+
+const WALKING_SPEED = 60
